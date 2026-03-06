@@ -3,8 +3,12 @@ import authRoutes from "./routes/authRoutes";
 import courseRoutes from "./routes/courseRoutes";
 import lessonRoutes from "./routes/lessonRoutes";
 import purchaseRoutes from "./routes/purchaseRoutes";
+import { apiLimiter } from "./middleware/rateLimiter";
+import { errorHandler } from "./middleware/errorHandler";
 
 const app = express();
+app.use(apiLimiter);
+app.use(errorHandler);
 app.use(express.json());
 app.use("/auth",authRoutes);
 app.use("/courses",courseRoutes);
