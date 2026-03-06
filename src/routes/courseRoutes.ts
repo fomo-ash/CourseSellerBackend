@@ -1,5 +1,7 @@
-import express, { Response } from "express";
-import { authMiddleware, requireRole, AuthRequest } from "../middleware/authMiddleware";
+import express from "express";
+import type { Response } from "express";
+import type { AuthRequest } from "../middleware/authMiddleware";
+import { authMiddleware, requireRole } from "../middleware/authMiddleware";
 import { createCourseSchema } from "../schemas/courseSchema";
 import { prisma } from "../db";
 
