@@ -23,8 +23,11 @@ jobs:
       - name: Install dependencies
         run: bun install
 
-      - name: Check TypeScript
-        run: bun run build
+      - name: Generate Prisma Client
+        run: bunx prisma generate
 
-      - name: Prisma Validate
+      - name: Validate Prisma Schema
         run: bunx prisma validate
+
+      - name: Build TypeScript
+        run: bun run build
